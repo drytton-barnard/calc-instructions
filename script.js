@@ -26,6 +26,7 @@ searchInput.addEventListener("input", () => {
     li.onclick = () => {
       searchInput.value = match;
       suggestionsBox.innerHTML = "";
+      suggestionsBox.style.display = "none";
     };
     suggestionsBox.appendChild(li);
   });
