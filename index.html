@@ -1,45 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculator Help Center</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
+
 <body>
-  <div id="background-image"></div>
-  <div id="overlay"></div>
+  <div id="background"></div>
 
-  <div class="glass-container">
-    <header>
-      <h1>Calculator Help Center</h1>
-      <p>Search help topics, watch tutorials, and explore tips.</p>
-    </header>
+  <header>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <h1 class="site-title">Calculator Help Center</h1>
+    <input type="text" id="mainSearch" placeholder="Search instructions..." oninput="handleSearch(this.value)" />
+  </header>
 
-    <div class="search-container">
-      <input type="text" id="search-bar" placeholder="Search..." autocomplete="off" />
-      <button class="search-btn" aria-label="Search">
-        <img src="search-icon.svg" alt="Search Icon" />
-      </button>
-      <ul id="suggestions"></ul>
-    </div>
-
-    <main>
-      <h2>Videos & Images</h2>
-      <div class="video-wrapper">
-        <video controls>
-          <source src="media/sample-video.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <img src="media/sample-image.png" alt="Screenshot" />
-    </main>
-
-    <footer>
-      <p>Calculator Help Center - 55213790</p>
-    </footer>
+  <div id="sidebar">
+    <input type="text" id="sidebarSearch" placeholder="Search..." oninput="handleSearch(this.value)" />
+    <nav>
+      <ul>
+        <li><a href="#welcome">Welcome</a></li>
+        <li><a href="#images">Picture Instructions</a></li>
+        <li><a href="#videos">Video Instructions</a></li>
+      </ul>
+    </nav>
   </div>
+
+  <main>
+    <section id="welcome">
+      <h2>Welcome!</h2>
+      <p>
+        This website is here to help you understand and navigate the Excel
+        calculator with ease. Use the search bar above or the tabs on the
+        left to explore instructions.
+      </p>
+      <a href="media/YourCalculator.xlsx" download class="download-link">Download the Excel Calculator</a>
+    </section>
+
+    <section id="images">
+      <h2>Picture Instructions</h2>
+      <div class="gallery" id="imageGallery">
+        <!-- Sample clickable instruction block -->
+        <div class="instruction-card" onclick="showDetails('Interest Calculation')">
+          <img src="media/interest.jpg" alt="Interest Calculation" />
+          <p>How to calculate interest</p>
+        </div>
+        <!-- Add more instruction blocks here -->
+      </div>
+    </section>
+
+    <section id="videos">
+      <h2>Video Instructions</h2>
+      <div class="gallery" id="videoGallery">
+        <div class="instruction-card">
+          <video controls>
+            <source src="media/intro.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p>Introduction to the calculator</p>
+        </div>
+        <!-- Add more videos here -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Calculator Help Center - 55213790</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
