@@ -1,40 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator Videos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Videos - Calculator Help Center</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
   <div id="background-image"></div>
   <div id="overlay"></div>
 
   <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="videos.html" class="active">Videos</a></li>
-      <li><a href="pictures.html">Pictures</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Help Center</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="videos.html" class="nav-link active">Videos</a></li>
+        <li><a href="pictures.html" class="nav-link">Pictures</a></li>
+      </ul>
+    </div>
   </nav>
 
   <div class="glass-container">
     <header>
-      <h1>Video Tutorials</h1>
-      <p>Learn how to use the calculator step-by-step with videos.</p>
+      <h1>Videos Tutorials</h1>
+      <p>Watch step-by-step video guides to help you use the calculator.</p>
     </header>
 
     <main>
       <div class="video-wrapper">
         <video controls>
           <source src="media/sample-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-wrapper">
+        <video controls>
+          <source src="media/sample-video-2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
       </div>
     </main>
 
     <footer>
-      <p>&copy; Calculator Help Center - 55213790</p>
+      <p>&copy; 2025 Calculator Help Center - 55213790</p>
     </footer>
   </div>
 

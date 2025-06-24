@@ -1,36 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculator Pictures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pictures - Calculator Help Center</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
   <div id="background-image"></div>
   <div id="overlay"></div>
 
   <nav class="navbar">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="videos.html">Videos</a></li>
-      <li><a href="pictures.html" class="active">Pictures</a></li>
-    </ul>
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Help Center</a>
+      <button class="nav-toggle" aria-label="Toggle navigation menu">
+        <span class="hamburger"></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="videos.html" class="nav-link">Videos</a></li>
+        <li><a href="pictures.html" class="nav-link active">Pictures</a></li>
+      </ul>
+    </div>
   </nav>
 
   <div class="glass-container">
     <header>
-      <h1>Calculator Screenshots</h1>
-      <p>Visual explanations and step-by-step image guides.</p>
+      <h1>Picture Tutorials</h1>
+      <p>Browse screenshots and images to help you understand the calculator.</p>
     </header>
 
     <main>
-      <img src="media/sample-image.png" alt="Screenshot of Calculator" />
+      <img
+        src="media/sample-image.png"
+        alt="Screenshot 1"
+        class="media-image"
+      />
+      <img
+        src="media/sample-image-2.png"
+        alt="Screenshot 2"
+        class="media-image"
+      />
     </main>
 
     <footer>
-      <p>&copy; Calculator Help Center - 55213790</p>
+      <p>&copy; 2025 Calculator Help Center - 55213790</p>
     </footer>
   </div>
 

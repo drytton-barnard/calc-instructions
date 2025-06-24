@@ -171,23 +171,20 @@ body {
   .nav-menu li {
     margin-bottom: 1rem;
   }
-}
 
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
+  header h1 {
+    font-size: 2.5rem;
+  }
 
-header h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  color: #2a4365;
-}
+  #search-bar {
+    padding-right: 44px;
+  }
 
-header p {
-  font-size: 1.1rem;
-  color: #4a5568;
+  .search-btn {
+    width: 24px;
+    height: 24px;
+    right: 12px;
+  }
 }
 
 /* Search */
@@ -324,21 +321,4 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
   color: #4a5568;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 2.5rem;
-  }
-
-  #search-bar {
-    padding-right: 44px;
-  }
-
-  .search-btn {
-    width: 24px;
-    height: 24px;
-    right: 12px;
-  }
 }
