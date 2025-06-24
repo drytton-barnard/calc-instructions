@@ -1,15 +1,14 @@
-// Autocomplete + Search Memory
 document.addEventListener("DOMContentLoaded", () => {
   const searchBar = document.getElementById("search-bar");
   const autocompleteBox = document.getElementById("autocomplete-box");
 
   const suggestions = [
-    "How to reset the calculator",
-    "How to import my own data",
-    "How to plot graphs",
-    "How to use the tax calculator",
-    "How to convert currencies",
-    "How to download the calculator"
+    "How to switch to a different page?",
+    "How to use the navigation center?",
+    "How to verify the calculation?",
+    "How to clear all the input information?",
+    "How to convert currencies?",
+    "How to convert the interest?"
   ];
 
   const previousSearch = localStorage.getItem("lastSearch");
@@ -43,12 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Disable right-click and shortcuts
-document.addEventListener('contextmenu', function (e) {
-  e.preventDefault();
-});
-
-document.addEventListener('keydown', function (e) {
+// Basic protection
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
   if (
     e.key === 'F12' ||
     (e.ctrlKey && e.shiftKey && e.key === 'I') ||

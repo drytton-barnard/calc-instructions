@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* === Base Body Style === */
+/* === Body === */
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #f0f8ff, #dbe9f4);
@@ -21,17 +21,18 @@ header {
 
 header h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #2c3e50;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #555;
+  margin-top: 8px;
 }
 
-/* === Aesthetic Green Search Bar === */
+/* === Search Bar === */
 .search-container {
   display: flex;
   align-items: center;
@@ -39,10 +40,11 @@ header p {
   background: linear-gradient(135deg, #c8f4d3, #a2e5b6);
   padding: 10px;
   border-radius: 50px;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
-  width: 80%;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
   max-width: 500px;
   margin: 30px auto;
+  position: relative;
 }
 
 .aesthetic-search {
@@ -60,10 +62,9 @@ header p {
 .search-button {
   background-color: #69d58d;
   border: none;
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 0 50px 50px 0;
   cursor: pointer;
-  font-size: 1.1rem;
   transition: background-color 0.3s ease;
 }
 
@@ -71,17 +72,35 @@ header p {
   background-color: #53c67a;
 }
 
-/* Autocomplete Box */
+.search-button img {
+  width: 20px;
+  height: 20px;
+  filter: grayscale(100%);
+}
+
+/* Autocomplete Suggestions */
 #autocomplete-box {
-  width: 80%;
+  width: 90%;
   max-width: 500px;
   margin: 0 auto 30px;
   background-color: white;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   display: none;
-  padding: 10px;
+  padding: 10px 0;
   font-family: 'Poppins', sans-serif;
+  position: relative;
+  top: -10px;
+  z-index: 10;
+}
+
+#autocomplete-box div {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+#autocomplete-box div:hover {
+  background-color: #f0f0f0;
 }
 
 /* === Media Section === */
@@ -92,6 +111,8 @@ header p {
 
 .media-section h2 {
   margin: 20px 0 10px;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
 /* === Footer === */
@@ -108,7 +129,8 @@ footer {
     font-size: 0.9rem;
   }
 
-  video, img {
+  video,
+  img {
     width: 90%;
     height: auto;
   }
