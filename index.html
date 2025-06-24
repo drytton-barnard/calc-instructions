@@ -3,68 +3,89 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calculator Help Center</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <header>
-    <button id="menu-toggle">☰</button>
+  <header class="header">
+    <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
     <h1 class="site-title">Calculator Help Center</h1>
-    <input type="text" id="mainSearch" placeholder="Search instructions..." />
+    <input
+      type="search"
+      id="mainSearch"
+      placeholder="Search instructions..."
+      aria-label="Search instructions"
+      autocomplete="off"
+    />
   </header>
 
-  <aside id="sidebar">
-    <input type="text" id="sidebarSearch" placeholder="Search..." />
+  <aside id="sidebar" class="sidebar" aria-label="Site Navigation">
+    <input
+      type="search"
+      id="sidebarSearch"
+      placeholder="Search..."
+      aria-label="Sidebar search"
+      autocomplete="off"
+    />
     <nav>
-      <ul>
-        <li><a href="#welcome">Welcome</a></li>
-        <li><a href="#images">Pictures</a></li>
-        <li><a href="#videos">Videos</a></li>
+      <ul class="nav-list">
+        <li><a href="#welcome" tabindex="0">Welcome</a></li>
+        <li><a href="#images" tabindex="0">Picture Instructions</a></li>
+        <li><a href="#videos" tabindex="0">Video Instructions</a></li>
       </ul>
     </nav>
   </aside>
 
-  <main>
-    <section id="welcome">
+  <main class="main-content">
+    <section id="welcome" class="section welcome-section">
       <h2>Welcome</h2>
-      <p>This site gives step-by-step help on using the Excel calculator. You can use the search bar or sidebar to explore. Click the button below to download the calculator file.</p>
-      <a href="media/calculator.xlsx" download class="download-button">Download Excel Calculator</a>
+      <p>
+        Welcome to the Calculator Help Center! This site will guide you step-by-step through using
+        the Excel calculator with clear images and videos. Use the search bars or navigation tabs to
+        quickly find what you need.
+      </p>
+      <a href="media/calculator.xlsx" download class="download-button" aria-label="Download Excel Calculator"
+        >Download Excel Calculator</a
+      >
     </section>
 
-    <section id="images">
+    <section id="images" class="section images-section">
       <h2>Picture-Based Instructions</h2>
-      <div class="gallery">
-        <div class="card">
-          <img src="media/example1.jpg" alt="Example Instruction" />
+      <div class="gallery" id="imageGallery" aria-live="polite" aria-atomic="true">
+        <article class="card" tabindex="0">
+          <img src="media/example1.jpg" alt="Example Instruction: How to calculate interest" />
           <p>How to calculate interest</p>
-        </div>
-        <!-- Add more image cards here -->
+        </article>
+        <!-- Add more picture cards -->
       </div>
     </section>
 
-    <section id="videos">
+    <section id="videos" class="section videos-section">
       <h2>Video Instructions</h2>
-      <div class="gallery">
-        <div class="card">
-          <video controls>
+      <div class="gallery" id="videoGallery" aria-live="polite" aria-atomic="true">
+        <article class="card" tabindex="0">
+          <video controls preload="metadata" aria-label="Video: Basic Setup Tutorial">
             <source src="media/tutorial.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
+            Sorry, your browser does not support embedded videos.
           </video>
-          <p>Video: Basic Setup</p>
-        </div>
-        <!-- Add more video cards here -->
+          <p>Basic Setup Tutorial</p>
+        </article>
+        <!-- Add more video cards -->
       </div>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; Calculator Help Center - 55213790</p>
+  <footer class="footer">
+    <p>Calculator Help Center - 55213790</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
