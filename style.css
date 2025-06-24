@@ -123,9 +123,10 @@ header p {
 
 #suggestions li:hover {
   background-image: url('media/background.jpg');
-  background-size: cover;       /* Make sure image covers the li */
-  background-position: center;  /* Center the image */
-  color: rgba(255, 255, 255, 0);                 /* Optional: change text color for contrast */
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* white text for contrast */
+  text-shadow: 0 0 4px rgba(0,0,0,0.7); /* subtle text shadow for readability */
 }
 
 /* Main Content */
