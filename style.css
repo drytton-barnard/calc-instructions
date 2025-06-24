@@ -1,3 +1,4 @@
+/* Reset & Defaults */
 * {
   margin: 0;
   padding: 0;
@@ -8,10 +9,18 @@ html, body {
   height: 100%;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: #f0f4f8;
 }
 
-/* Background */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Background Image */
 #background-image {
   position: fixed;
   top: 0; left: 0;
@@ -43,31 +52,40 @@ html, body {
   z-index: 10;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
+
 .navbar ul {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
   display: flex;
   justify-content: center;
-  list-style: none;
   gap: 2rem;
-  padding: 1rem;
+  list-style: none;
 }
+
 .navbar a {
   text-decoration: none;
   font-weight: 600;
   color: #2a4365;
+  padding-bottom: 3px;
+  transition: all 0.2s ease-in-out;
 }
+
 .navbar a.active,
 .navbar a:hover {
   border-bottom: 2px solid #2c7a7b;
+  color: #285E61;
 }
 
 /* Container */
 .glass-container {
+  width: 100%;
   max-width: 960px;
   margin: 2rem auto;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
   border-radius: 16px;
-  backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   min-height: 80vh;
   display: flex;
@@ -79,33 +97,39 @@ html, body {
 header {
   text-align: center;
   margin-bottom: 2rem;
+  padding: 0 1rem;
 }
+
 header h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 3rem;
   color: #2a4365;
 }
+
 header p {
   font-size: 1.1rem;
   color: #4a5568;
 }
 
-/* Search */
+/* Search Bar */
 .search-container {
   position: relative;
   width: 100%;
   max-width: 600px;
   margin-bottom: 2rem;
 }
+
 #search-bar {
   width: 100%;
   padding: 14px 50px 14px 20px;
   border-radius: 50px;
   border: 2px solid #2c7a7b;
-  background-color: #ffffffcc;
   font-size: 1rem;
   outline: none;
+  background-color: #ffffffcc;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
+
 .search-btn {
   position: absolute;
   right: 15px;
@@ -113,41 +137,62 @@ header p {
   transform: translateY(-50%);
   background: none;
   border: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
   cursor: pointer;
 }
+
 .search-btn img {
-  width: 24px;
-  height: 24px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   filter: grayscale(100%);
 }
 
-/* Suggestions */
+/* Suggestions Dropdown */
 #suggestions {
   position: absolute;
   top: 100%;
   left: 0;
   right: 0;
   background: white;
-  list-style: none;
   border-radius: 0 0 12px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  list-style: none;
   z-index: 5;
   display: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+
 #suggestions li {
   padding: 12px 16px;
+  font-size: 1rem;
   cursor: pointer;
 }
+
 #suggestions li:hover {
   background: linear-gradient(90deg, #81E6D9, #63B3ED);
   color: white;
 }
 
-/* Main */
+/* Main Content */
 main {
   text-align: center;
+  padding: 1rem;
+  width: 100%;
 }
+
+main p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Media Content */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
@@ -155,18 +200,25 @@ main {
   overflow: hidden;
   margin-bottom: 20px;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 800px;
 }
+
 .video-wrapper video {
   position: absolute;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 12px;
 }
+
 main img {
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 1rem;
 }
 
 /* Footer */
@@ -176,4 +228,29 @@ footer {
   padding: 1rem;
   font-size: 0.9rem;
   color: #4a5568;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  .navbar ul {
+    gap: 1.2rem;
+  }
+
+  #search-bar {
+    padding-right: 44px;
+  }
+
+  .search-btn {
+    width: 24px;
+    height: 24px;
+    right: 12px;
+  }
+
+  main p {
+    padding: 0 1rem;
+  }
 }
