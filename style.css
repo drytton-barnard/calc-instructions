@@ -122,7 +122,10 @@ header p {
 }
 
 #suggestions li:hover {
-  background-color: url('media/background.jpg');
+  background-image: url('media/background.jpg');
+  background-size: cover;       /* Make sure image covers the li */
+  background-position: center;  /* Center the image */
+  color: white;                 /* Optional: change text color for contrast */
 }
 
 /* Main Content */
