@@ -122,7 +122,7 @@ header p {
 }
 
 #suggestions li:hover {
-  background-image: url('media/background.jpg');
+  background-color: url('media/background.jpg');
 }
 
 /* Main Content */
