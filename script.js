@@ -35,14 +35,15 @@ searchInput.addEventListener("input", () => {
   suggestionsBox.style.display = filtered.length ? "block" : "none";
 });
 
-// Hamburger menu toggle logic
+// Hamburger menu toggle logic with ARIA updates
 document.addEventListener("DOMContentLoaded", function () {
   const toggleButton = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenu = document.getElementById('nav-menu');
 
   if (toggleButton && navMenu) {
     toggleButton.addEventListener('click', () => {
-      navMenu.classList.toggle('nav-menu_visible');
+      const isVisible = navMenu.classList.toggle('nav-menu_visible');
+      toggleButton.setAttribute('aria-expanded', isVisible);
     });
   }
 });
