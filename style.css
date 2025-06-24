@@ -1,4 +1,4 @@
-/* === Reset and Base === */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -13,14 +13,12 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === Background Image === */
+/* Background Image */
 #background-image {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('media/background.jpg'); /* Your image goes here */
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-image: url('media/background.jpg'); /* your image path */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -28,7 +26,7 @@ html, body {
   z-index: -1;
 }
 
-/* === Fullscreen Responsive Layout === */
+/* Container */
 .page-container {
   width: 100%;
   min-height: 100vh;
@@ -40,7 +38,7 @@ html, body {
   justify-content: flex-start;
 }
 
-/* === Header === */
+/* Header */
 header {
   width: 100%;
   text-align: center;
@@ -59,7 +57,7 @@ header p {
   margin-top: 10px;
 }
 
-/* === Search Bar === */
+/* Search Bar */
 .search-container {
   width: 100%;
   max-width: 1000px;
@@ -99,7 +97,7 @@ header p {
   filter: grayscale(100%);
 }
 
-/* === Suggestions === */
+/* Suggestions */
 #suggestions {
   position: absolute;
   top: 100%;
@@ -125,7 +123,7 @@ header p {
   background-color: #e0f2f1;
 }
 
-/* === Main Content === */
+/* Main Content */
 main {
   width: 100%;
   max-width: 1200px;
@@ -147,7 +145,7 @@ video, img {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* === Footer === */
+/* Footer */
 footer {
   width: 100%;
   text-align: center;
@@ -157,12 +155,11 @@ footer {
   margin-top: auto;
 }
 
-/* === Responsive Design === */
+/* Responsive */
 @media (max-width: 1024px) {
   header h1 {
     font-size: 3.5rem;
   }
-
   .search-container {
     padding: 0 20px;
   }
@@ -172,16 +169,13 @@ footer {
   header h1 {
     font-size: 3rem;
   }
-
   header p {
     font-size: 1rem;
   }
-
   #search-bar {
     font-size: 1rem;
     padding: 12px 44px 12px 18px;
   }
-
   main h2 {
     font-size: 1.3rem;
   }
@@ -191,11 +185,9 @@ footer {
   .page-container {
     padding: 32px 16px;
   }
-
   header h1 {
     font-size: 2.5rem;
   }
-
   main h2 {
     font-size: 1.1rem;
   }
