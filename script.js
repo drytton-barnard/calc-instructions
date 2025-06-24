@@ -19,8 +19,8 @@ searchInput.addEventListener("input", () => {
     return;
   }
 
-  const filtered = suggestions.filter(s => s.toLowerCase().includes(input));
-  filtered.forEach(match => {
+  const filtered = suggestions.filter((s) => s.toLowerCase().includes(input));
+  filtered.forEach((match) => {
     const li = document.createElement("li");
     li.textContent = match;
     li.onclick = () => {
