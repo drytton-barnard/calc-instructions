@@ -12,9 +12,18 @@ const suggestions = [
 
 let selectedIndex = -1;
 
-function showSuggestions(filtered) {
+searchInput.addEventListener('input', () => {
+  const val = searchInput.value.toLowerCase();
+  const filtered = suggestions.filter(s => s.toLowerCase().includes(val));
   suggestionsBox.innerHTML = '';
-  filtered.forEach((item, i) => {
+  selectedIndex = -1;
+
+  if (filtered.length === 0 || !val) {
+    suggestionsBox.style.display = 'none';
+    return;
+  }
+
+  filtered.forEach((item, index) => {
     const li = document.createElement('li');
     li.textContent = item;
     li.onclick = () => {
@@ -24,28 +33,8 @@ function showSuggestions(filtered) {
     };
     suggestionsBox.appendChild(li);
   });
-  suggestionsBox.style.display = filtered.length ? 'block' : 'none';
-  selectedIndex = -1;
-}
 
-function clearSuggestions() {
-  suggestionsBox.innerHTML = '';
-  suggestionsBox.style.display = 'none';
-}
-
-function showContent(topic) {
-  const content = document.querySelector('main');
-  content.innerHTML = `
-    <h2>${topic}</h2>
-    <p>This is the help section for <strong>${topic}</strong>. You can expand this with examples, videos, and screenshots.</p>
-  `;
-}
-
-searchInput.addEventListener('input', () => {
-  const val = searchInput.value.toLowerCase().trim();
-  if (!val) return clearSuggestions();
-  const filtered = suggestions.filter(s => s.toLowerCase().includes(val));
-  showSuggestions(filtered);
+  suggestionsBox.style.display = 'block';
 });
 
 searchInput.addEventListener('keydown', (e) => {
@@ -55,28 +44,29 @@ searchInput.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown') {
     e.preventDefault();
     selectedIndex = (selectedIndex + 1) % items.length;
-    updateSelected(items);
   } else if (e.key === 'ArrowUp') {
     e.preventDefault();
     selectedIndex = (selectedIndex - 1 + items.length) % items.length;
-    updateSelected(items);
   } else if (e.key === 'Enter') {
     if (selectedIndex >= 0) {
-      e.preventDefault();
       items[selectedIndex].click();
     }
-  } else if (e.key === 'Escape') {
-    clearSuggestions();
+  }
+
+  items.forEach((li, i) => {
+    li.setAttribute('aria-selected', i === selectedIndex);
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-container')) {
+    suggestionsBox.style.display = 'none';
   }
 });
 
-function updateSelected(items) {
-  items.forEach((el, i) => {
-    el.setAttribute('aria-selected', i === selectedIndex);
-    if (i === selectedIndex) el.scrollIntoView({ block: 'nearest' });
-  });
+function showContent(topic) {
+  document.querySelector('main').innerHTML = `
+    <h2>${topic}</h2>
+    <p>This section will include detailed help for: <strong>${topic}</strong>.</p>
+  `;
 }
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.search-container')) clearSuggestions();
-});
