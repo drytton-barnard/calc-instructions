@@ -39,9 +39,9 @@ body {
 /* Glass Container */
 .glass-container {
   max-width: 960px;
-  margin: 5rem auto 2rem; /* leave space for nav */
+  margin: 5rem auto 2rem;
   padding: 3rem 2rem;
-  background: rgba(255, 255, 255, 0.6); /* more transparent */
+  background: rgba(255, 255, 255, 0.6);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(12px);
@@ -50,7 +50,7 @@ body {
   align-items: center;
   min-height: calc(100vh - 6rem);
   overflow: hidden;
-  text-align: center; /* center all text inside */
+  text-align: center;
 }
 
 /* Navigation styles */
@@ -59,7 +59,7 @@ body {
   top: 0;
   width: 100%;
   background: rgba(42, 67, 101, 0.85);
-  z-index: 100;
+  z-index: 9999;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
@@ -121,6 +121,7 @@ body {
   list-style: none;
   display: flex;
   gap: 2rem;
+  margin-left: auto;
 }
 
 .nav-link {
@@ -137,26 +138,6 @@ body {
   color: #81e6d9;
 }
 
-/* Mobile menu hidden by default */
-.nav-menu.nav-menu_visible {
-  display: flex !important;
-  flex-direction: column;
-  position: fixed;
-  top: 56px;
-  right: 0;
-  width: 200px;
-  background: rgba(42, 67, 101, 0.95);
-  padding: 1rem;
-  border-radius: 0 0 0 12px;
-  box-shadow: -3px 3px 12px rgba(0,0,0,0.2);
-  z-index: 105;
-}
-
-/* Hide menu on mobile initially */
-.nav-menu {
-  transition: none;
-}
-
 @media (max-width: 768px) {
   .nav-toggle {
     display: block;
@@ -164,24 +145,26 @@ body {
 
   .nav-menu {
     display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 56px;
+    right: 0;
+    width: 220px;
+    background: rgba(42, 67, 101, 0.95);
+    padding: 1rem;
+    border-radius: 0 0 0 12px;
+    box-shadow: -3px 3px 12px rgba(0,0,0,0.3);
+    z-index: 1100;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+  }
+
+  .nav-menu.nav-menu_visible {
+    display: flex !important;
   }
 
   .nav-menu li {
-    margin-bottom: 1rem;
-  }
-
-  header h1 {
-    font-size: 2.5rem;
-  }
-
-  #search-bar {
-    padding-right: 44px;
-  }
-
-  .search-btn {
-    width: 24px;
-    height: 24px;
-    right: 12px;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -199,6 +182,7 @@ body {
   font-size: 1.1rem;
   color: #2a4365;
   line-height: 1.5;
+  text-align: center;
 }
 
 #search-bar {
@@ -286,7 +270,7 @@ body {
 }
 
 .download-btn .icon {
-  width: 32px;  /* bigger */
+  width: 32px;
   height: 32px;
   object-fit: contain;
 }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pictures - Calculator Help Center</title>
+  <title>Calculator Help Center - Pictures</title>
   <link rel="stylesheet" href="style.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap"
@@ -16,11 +16,17 @@
 
   <nav class="navbar">
     <div class="nav-container">
-      <a href="#" class="nav-logo">Help Center</a>
-      <button class="nav-toggle" aria-label="Toggle navigation menu">
+      <a href="index.html" class="nav-logo">Help Center</a>
+      <button
+        class="nav-toggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        type="button"
+      >
         <span class="hamburger"></span>
       </button>
-      <ul class="nav-menu">
+      <ul class="nav-menu" id="nav-menu">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="videos.html" class="nav-link">Videos</a></li>
         <li><a href="pictures.html" class="nav-link active">Pictures</a></li>
@@ -30,21 +36,17 @@
 
   <div class="glass-container">
     <header>
-      <h1>Picture Tutorials</h1>
-      <p>Browse screenshots and images to help you understand the calculator.</p>
+      <h1>Pictures Tutorials</h1>
+      <p>View images and screenshots to help you understand the calculator better.</p>
     </header>
 
     <main>
       <img
         src="media/sample-image.png"
-        alt="Screenshot 1"
+        alt="Screenshot example"
         class="media-image"
       />
-      <img
-        src="media/sample-image-2.png"
-        alt="Screenshot 2"
-        class="media-image"
-      />
+      <!-- Add more images as needed -->
     </main>
 
     <footer>
