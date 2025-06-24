@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +7,11 @@
 
 html, body {
   height: 100%;
-  width: 100%;
   font-family: 'Inter', sans-serif;
-  background-color: #f5f5f5;
   overflow-x: hidden;
-  position: relative;
 }
 
-/* Background Image */
+/* Background */
 #background-image {
   position: fixed;
   top: 0; left: 0;
@@ -23,178 +20,115 @@ html, body {
   background-image: url('media/background.jpg');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  filter: brightness(0.6);
-  z-index: -999; /* Ensure very far behind */
+  filter: brightness(0.7);
+  z-index: -1;
 }
 
-/* Container */
+/* Main Container */
 .page-container {
-  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
   min-height: 100vh;
-  padding: 60px 40px 80px;
-  background: rgba(255, 255, 255, 0.92);
+  padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 1; /* Above background */
 }
 
 /* Header */
 header {
-  width: 100%;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
 }
 
 header h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  color: #2c3e50;
+  font-size: 3.5rem;
+  color: #234E52;
 }
 
 header p {
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #4A5568;
 }
 
-/* Search Bar */
+/* Search Container */
 .search-container {
-  width: 100%;
-  max-width: 1000px;
   position: relative;
-  margin-bottom: 40px;
+  max-width: 700px;
+  width: 100%;
+  margin: 2rem auto;
 }
 
 #search-bar {
   width: 100%;
-  padding: 14px 45px 14px 20px; /* Right padding slightly reduced for better fit */
+  padding: 14px 50px 14px 20px;
   font-size: 1rem;
-  border: 2px solid #2f4f4f;
+  border: 2px solid #2C7A7B;
   border-radius: 30px;
-  background-color: #fff;
   outline: none;
-  box-sizing: border-box;
-  transition: border-color 0.3s ease;
-}
-
-#search-bar:focus {
-  border-color: #276749; /* subtle green on focus */
+  background-color: #fff;
 }
 
 .search-btn {
   position: absolute;
-  right: 14px; /* Slightly inset */
   top: 50%;
+  right: 12px;
   transform: translateY(-50%);
   background: none;
   border: none;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   padding: 0;
+  width: 30px;
+  height: 30px;
 }
 
 .search-btn img {
-  width: 20px;
-  height: 20px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   filter: grayscale(100%);
 }
 
-/* Suggestions container */
+/* Suggestions Dropdown */
 #suggestions {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
-  background: transparent; /* transparent so hover background image shows */
-  border: 1px solid #ccc;
+  right: 0;
+  background: #fff;
+  border: 1px solid #cbd5e0;
   border-top: none;
   border-radius: 0 0 12px 12px;
-  list-style: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   display: none;
   z-index: 10;
-  overflow: hidden; /* rounded corners */
 }
 
-/* Suggestion items */
 #suggestions li {
-  position: relative;
   padding: 12px 16px;
-  font-size: 1rem;
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.9); /* default light bg */
-  color: #222;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #ddd;
-  border-radius: 0;
-  z-index: 0;
+  font-size: 1rem;
+  transition: background 0.2s;
 }
 
-/* Last suggestion item rounded bottom */
-#suggestions li:last-child {
-  border-bottom: none;
-  border-radius: 0 0 12px 12px;
-}
-
-/* Hover effect with background image */
 #suggestions li:hover {
-  background-color: transparent; /* remove white bg */
-  color: #fff; /* white text */
-  text-shadow: 0 0 5px rgba(0,0,0,0.8);
-  background-image: url('media/background.jpg');
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
-  transition: background-color 0.3s ease;
+  background: linear-gradient(90deg, #68D391, #63B3ED);
+  color: white;
 }
 
-/* Overlay on hover for readability */
-#suggestions li:hover::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 12px 12px;
-  z-index: -1; /* behind text */
-}
-
-/* Main Content */
+/* Media Section */
 main {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 20px;
   text-align: center;
-  margin: 0 auto;
-}
-
-/* Responsive video and image */
-main video,
-main img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  object-fit: contain;
+  max-width: 1000px;
+  margin: 2rem auto;
 }
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
-  max-width: 100%;
-  margin: 20px auto;
+  margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
@@ -208,64 +142,34 @@ main img {
   border-radius: 12px;
 }
 
+main img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
 /* Footer */
 footer {
-  width: 100%;
   text-align: center;
-  padding-top: 50px;
-  font-size: 0.9rem;
-  color: #888;
   margin-top: auto;
+  padding: 2rem 0 0.5rem;
+  font-size: 0.9rem;
+  color: #718096;
 }
 
-/* Responsive font and layout */
-@media (max-width: 1024px) {
-  header h1 {
-    font-size: 3.5rem;
-  }
-  .search-container {
-    padding: 0 20px;
-  }
-}
-
+/* Responsive Tweaks */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 3rem;
-  }
-  header p {
-    font-size: 1rem;
-  }
-  #search-bar {
-    font-size: 1rem;
-    padding: 12px 44px 12px 18px;
-  }
-  main h2 {
-    font-size: 1.3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .page-container {
-    padding: 32px 16px;
-  }
   header h1 {
     font-size: 2.5rem;
   }
-  main h2 {
-    font-size: 1.1rem;
+
+  #search-bar {
+    padding-right: 45px;
   }
 
-  /* Fix search button on small screens */
-  #search-bar {
-    padding-right: 44px;
-  }
   .search-btn {
-    width: 32px;
-    height: 32px;
-    right: 8px;
-  }
-  .search-btn img {
-    width: 18px;
-    height: 18px;
+    right: 10px;
+    width: 26px;
+    height: 26px;
   }
 }
