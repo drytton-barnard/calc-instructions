@@ -2,136 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Excel Calculator Help Center</title>
-
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Pacifico&display=swap"
-    rel="stylesheet"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator Help Center</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <!-- Background & overlay -->
   <div id="background-image"></div>
   <div id="overlay"></div>
 
-  <!-- Main container -->
-  <div class="container">
+  <div class="glass-container">
+    <header>
+      <h1>Calculator Help Center</h1>
+      <p>Search help topics, watch tutorials, and explore tips.</p>
+    </header>
 
-    <!-- Side pullout panel -->
-    <nav id="side-menu" class="side-menu closed" aria-label="Main Navigation">
-      <div class="side-menu-header">
-        <h2>Help Center</h2>
-        <button id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-          &#9776;
-        </button>
+    <div class="search-container">
+      <input type="text" id="search-bar" placeholder="Search..." autocomplete="off" />
+      <button class="search-btn" aria-label="Search">
+        <img src="search-icon.svg" alt="Search Icon" />
+      </button>
+      <ul id="suggestions"></ul>
+    </div>
+
+    <main>
+      <h2>Videos & Images</h2>
+      <div class="video-wrapper">
+        <video controls>
+          <source src="media/sample-video.mp4" type="video/mp4" />
+        </video>
       </div>
-
-      <!-- Search bar for side menu -->
-      <div class="side-search-container">
-        <input
-          type="search"
-          id="side-search"
-          placeholder="Search instructions..."
-          aria-label="Search instructions"
-          autocomplete="off"
-        />
-        <ul id="side-search-suggestions" class="suggestions-list" role="listbox"></ul>
-      </div>
-
-      <!-- Tabs navigation -->
-      <ul class="tabs" role="tablist">
-        <li><button role="tab" aria-selected="true" aria-controls="tab-welcome" id="tab-welcome-btn" class="tab-btn active">Welcome</button></li>
-        <li><button role="tab" aria-selected="false" aria-controls="tab-images" id="tab-images-btn" class="tab-btn">Image Instructions</button></li>
-        <li><button role="tab" aria-selected="false" aria-controls="tab-videos" id="tab-videos-btn" class="tab-btn">Video Instructions</button></li>
-      </ul>
-    </nav>
-
-    <!-- Main content area -->
-    <main class="content">
-
-      <!-- Welcome Tab Content -->
-      <section id="tab-welcome" role="tabpanel" tabindex="0" aria-labelledby="tab-welcome-btn" class="tab-panel active">
-        <h1>Welcome to the Excel Calculator Help Center</h1>
-        <p>
-          This site will guide you step-by-step on how to use the Excel calculator with images, videos, and easy instructions.
-          Use the search bar to quickly find what you need.
-        </p>
-        <a href="media/excel-calculator.xlsx" download class="download-btn" aria-label="Download Excel calculator file">
-          Download Excel Calculator File
-        </a>
-      </section>
-
-      <!-- Image Instructions Tab Content -->
-      <section id="tab-images" role="tabpanel" tabindex="0" aria-labelledby="tab-images-btn" class="tab-panel">
-        <h1>Image-Based Instructions</h1>
-        <input
-          type="search"
-          id="images-search"
-          placeholder="Search image instructions..."
-          aria-label="Search image instructions"
-          autocomplete="off"
-          class="inner-search"
-        />
-        <ul id="images-list" class="media-grid" role="list">
-          <!-- Example instruction items; add yours here -->
-          <li tabindex="0" class="media-item" data-title="How to enter data" data-type="image">
-            <img src="media/instruction1.png" alt="How to enter data" />
-            <p>How to enter data</p>
-          </li>
-          <li tabindex="0" class="media-item" data-title="Setting formulas" data-type="image">
-            <img src="media/instruction2.png" alt="Setting formulas" />
-            <p>Setting formulas</p>
-          </li>
-          <li tabindex="0" class="media-item" data-title="Using filters" data-type="image">
-            <img src="media/instruction3.png" alt="Using filters" />
-            <p>Using filters</p>
-          </li>
-          <!-- Add more image instructions -->
-        </ul>
-      </section>
-
-      <!-- Video Instructions Tab Content -->
-      <section id="tab-videos" role="tabpanel" tabindex="0" aria-labelledby="tab-videos-btn" class="tab-panel">
-        <h1>Video Instructions</h1>
-        <input
-          type="search"
-          id="videos-search"
-          placeholder="Search video instructions..."
-          aria-label="Search video instructions"
-          autocomplete="off"
-          class="inner-search"
-        />
-        <ul id="videos-list" class="media-grid" role="list">
-          <!-- Example video thumbnails; add your own -->
-          <li tabindex="0" class="media-item" data-title="How to input formulas" data-type="video" data-video-src="media/video1.mp4">
-            <img src="media/video-thumb1.jpg" alt="How to input formulas" />
-            <p>How to input formulas</p>
-          </li>
-          <li tabindex="0" class="media-item" data-title="Creating charts" data-type="video" data-video-src="media/video2.mp4">
-            <img src="media/video-thumb2.jpg" alt="Creating charts" />
-            <p>Creating charts</p>
-          </li>
-          <li tabindex="0" class="media-item" data-title="Saving your work" data-type="video" data-video-src="media/video3.mp4">
-            <img src="media/video-thumb3.jpg" alt="Saving your work" />
-            <p>Saving your work</p>
-          </li>
-          <!-- Add more video instructions -->
-        </ul>
-
-        <!-- Video popup player -->
-        <div id="video-popup" class="video-popup hidden" role="dialog" aria-modal="true" aria-label="Video player">
-          <button id="video-popup-close" aria-label="Close video player">&times;</button>
-          <video controls id="video-player" src="" preload="metadata"></video>
-          <p id="video-popup-title"></p>
-        </div>
-      </section>
-
+      <img src="media/sample-image.png" alt="Screenshot" />
     </main>
+
+    <footer>
+      <p>Calculator Help Center - 55213790</p>
+    </footer>
   </div>
 
   <script src="script.js"></script>

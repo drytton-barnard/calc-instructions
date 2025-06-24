@@ -1,8 +1,34 @@
-// Elements
-const sideMenu = document.getElementById('side-menu');
-const menuToggle = document.getElementById('menu-toggle');
+const searchInput = document.getElementById('search-bar');
+const suggestionsBox = document.getElementById('suggestions');
 
-const tabs = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
+const suggestions = [
+  "How to switch to a different page?",
+  "How to use the navigation center?",
+  "How to verify the calculation?",
+  "How to clear all the input information?",
+  "How to convert currencies?",
+  "How to convert the interest?"
+];
 
-const sideSearch = document.get
+searchInput.addEventListener("input", () => {
+  const input = searchInput.value.toLowerCase();
+  suggestionsBox.innerHTML = "";
+
+  if (!input) {
+    suggestionsBox.style.display = "none";
+    return;
+  }
+
+  const filtered = suggestions.filter(s => s.toLowerCase().includes(input));
+  filtered.forEach(match => {
+    const li = document.createElement("li");
+    li.textContent = match;
+    li.onclick = () => {
+      searchInput.value = match;
+      suggestionsBox.innerHTML = "";
+    };
+    suggestionsBox.appendChild(li);
+  });
+
+  suggestionsBox.style.display = filtered.length ? "block" : "none";
+});
