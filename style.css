@@ -50,6 +50,7 @@ body {
   align-items: center;
   min-height: calc(100vh - 6rem);
   overflow: hidden;
+  text-align: center; /* center all text inside */
 }
 
 /* Navigation styles */
@@ -195,7 +196,6 @@ body {
 .welcome-text {
   max-width: 600px;
   margin: 0 auto 2rem auto;
-  text-align: center;
   font-size: 1.1rem;
   color: #2a4365;
   line-height: 1.5;
@@ -328,3 +328,25 @@ footer {
   font-size: 0.9rem;
   color: #4a5568;
 }
+
+/* Headers with Great Vibes font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Great Vibes', cursive;
+  color: #2a4365;
+  margin-bottom: 0.5rem;
+}
+
+/* Optional: adjust font sizes */
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+/* and so on if needed */
