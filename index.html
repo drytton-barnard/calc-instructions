@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calculator Help Center</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Pacifico&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
   <header class="header">
-    <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+    <button id="menu-toggle" aria-label="Open menu">☰</button>
     <h1 class="site-title">Calculator Help Center</h1>
     <input
       type="search"
-      id="mainSearch"
+      id="global-search"
       placeholder="Search instructions..."
       aria-label="Search instructions"
       autocomplete="off"
     />
   </header>
 
-  <aside id="sidebar" class="sidebar" aria-label="Site Navigation">
+  <div id="overlay"></div>
+
+  <aside id="sidebar" class="sidebar" aria-label="Main Navigation">
     <input
       type="search"
-      id="sidebarSearch"
-      placeholder="Search..."
+      id="sidebar-search"
+      placeholder="Search instructions..."
       aria-label="Sidebar search"
       autocomplete="off"
     />
     <nav>
-      <ul class="nav-list">
+      <ul>
         <li><a href="#welcome" tabindex="0">Welcome</a></li>
         <li><a href="#images" tabindex="0">Picture Instructions</a></li>
         <li><a href="#videos" tabindex="0">Video Instructions</a></li>
@@ -46,37 +46,44 @@
     <section id="welcome" class="section welcome-section">
       <h2>Welcome</h2>
       <p>
-        Welcome to the Calculator Help Center! This site will guide you step-by-step through using
-        the Excel calculator with clear images and videos. Use the search bars or navigation tabs to
-        quickly find what you need.
+        Welcome to the Calculator Help Center! Use the search bar or navigation to find detailed instructions, pictures, and videos on using the Excel calculator.
       </p>
-      <a href="media/calculator.xlsx" download class="download-button" aria-label="Download Excel Calculator"
-        >Download Excel Calculator</a
-      >
+      <a href="media/calculator.xlsx" download class="btn-download">Download Excel Calculator</a>
     </section>
 
-    <section id="images" class="section images-section">
+    <section id="images" class="section gallery-section">
       <h2>Picture-Based Instructions</h2>
-      <div class="gallery" id="imageGallery" aria-live="polite" aria-atomic="true">
-        <article class="card" tabindex="0">
-          <img src="media/example1.jpg" alt="Example Instruction: How to calculate interest" />
-          <p>How to calculate interest</p>
+      <div class="gallery" id="image-gallery">
+        <article class="card" data-keywords="interest calculate loan repayment">
+          <img src="media/example1.jpg" alt="How to calculate interest" />
+          <p>How to Calculate Interest</p>
         </article>
-        <!-- Add more picture cards -->
+        <article class="card" data-keywords="currency conversion exchange rates">
+          <img src="media/example2.jpg" alt="Currency conversion steps" />
+          <p>Currency Conversion Steps</p>
+        </article>
+        <!-- Add more picture cards here -->
       </div>
     </section>
 
-    <section id="videos" class="section videos-section">
+    <section id="videos" class="section gallery-section">
       <h2>Video Instructions</h2>
-      <div class="gallery" id="videoGallery" aria-live="polite" aria-atomic="true">
-        <article class="card" tabindex="0">
-          <video controls preload="metadata" aria-label="Video: Basic Setup Tutorial">
+      <div class="gallery" id="video-gallery">
+        <article class="card" data-keywords="setup tutorial basic instructions">
+          <video controls preload="metadata" aria-label="Basic Setup Tutorial">
             <source src="media/tutorial.mp4" type="video/mp4" />
-            Sorry, your browser does not support embedded videos.
+            Your browser does not support the video tag.
           </video>
           <p>Basic Setup Tutorial</p>
         </article>
-        <!-- Add more video cards -->
+        <article class="card" data-keywords="currency exchange conversion">
+          <video controls preload="metadata" aria-label="Currency Conversion Tutorial">
+            <source src="media/tutorial2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p>Currency Conversion Tutorial</p>
+        </article>
+        <!-- Add more video cards here -->
       </div>
     </section>
   </main>
@@ -87,5 +94,4 @@
 
   <script src="script.js" defer></script>
 </body>
-
 </html>

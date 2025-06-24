@@ -1,74 +1,90 @@
 // script.js
 
-// Sidebar toggle
 const menuToggle = document.getElementById('menu-toggle');
 const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+const globalSearch = document.getElementById('global-search');
+const sidebarSearch = document.getElementById('sidebar-search');
+const allCards = document.querySelectorAll('.card');
 
+// Function to open sidebar
+function openSidebar() {
+  sidebar.classList.add('active');
+  overlay.classList.add('active');
+}
+
+// Function to close sidebar
+function closeSidebar() {
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+}
+
+// Toggle sidebar open/close on button click
 menuToggle.addEventListener('click', () => {
-  sidebar.classList.toggle('active');
-});
-
-// Close sidebar when clicking outside on smaller screens
-document.addEventListener('click', (e) => {
-  if (
-    sidebar.classList.contains('active') &&
-    !sidebar.contains(e.target) &&
-    e.target !== menuToggle
-  ) {
-    sidebar.classList.remove('active');
+  if (sidebar.classList.contains('active')) {
+    closeSidebar();
+  } else {
+    openSidebar();
   }
 });
 
-// Search functionality for header and sidebar
-const mainSearch = document.getElementById('mainSearch');
-const sidebarSearch = document.getElementById('sidebarSearch');
+// Close sidebar if click outside sidebar or on overlay
+overlay.addEventListener('click', closeSidebar);
 
-function clearHighlights() {
-  document.querySelectorAll('.card').forEach((card) => {
-    card.style.boxShadow = '';
-    card.style.transform = '';
-  });
-}
+// Close sidebar on link click (for mobile UX)
+sidebar.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', closeSidebar);
+});
 
-function highlightCards(matchText) {
-  clearHighlights();
-  const cards = document.querySelectorAll('.card');
-  let found = false;
-  cards.forEach((card) => {
-    if (card.innerText.toLowerCase().includes(matchText.toLowerCase())) {
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      card.style.boxShadow = '0 0 18px 5px #4caf50';
-      card.style.transform = 'translateY(-8px)';
-      found = true;
-    }
-  });
-  return found;
-}
-
-function handleSearchInput(query) {
-  if (!query.trim()) {
-    clearHighlights();
+// Search function filters cards live
+function filterCards(query) {
+  const q = query.trim().toLowerCase();
+  if (!q) {
+    // Show all cards if no query
+    allCards.forEach((card) => {
+      card.style.display = '';
+      card.style.boxShadow = '';
+      card.style.transform = '';
+    });
     return;
   }
-  const q = query.toLowerCase();
 
-  // Simple keyword matching to sections and cards
-  if (q.includes('interest')) {
-    location.hash = '#images';
-    highlightCards('interest');
-  } else if (q.includes('video') || q.includes('tutorial')) {
-    location.hash = '#videos';
-  } else if (q.includes('download') || q.includes('excel')) {
-    location.hash = '#welcome';
-  } else {
-    clearHighlights();
+  let foundAny = false;
+
+  allCards.forEach((card) => {
+    const keywords = card.getAttribute('data-keywords') || '';
+    const textContent = card.innerText.toLowerCase();
+
+    if (keywords.toLowerCase().includes(q) || textContent.includes(q)) {
+      card.style.display = '';
+      card.style.boxShadow = '0 0 15px 5px #56ab2f';
+      card.style.transform = 'translateY(-6px)';
+      foundAny = true;
+    } else {
+      card.style.display = 'none';
+      card.style.boxShadow = '';
+      card.style.transform = '';
+    }
+  });
+
+  // Optionally scroll to first visible card
+  if (foundAny) {
+    const firstVisible = Array.from(allCards).find((card) => card.style.display !== 'none');
+    if (firstVisible) {
+      firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
 }
 
-mainSearch.addEventListener('input', (e) => {
-  handleSearchInput(e.target.value);
+// Handle search input on both inputs
+globalSearch.addEventListener('input', (e) => {
+  filterCards(e.target.value);
+  // Also copy input to sidebar search for consistency
+  sidebarSearch.value = e.target.value;
 });
 
 sidebarSearch.addEventListener('input', (e) => {
-  handleSearchInput(e.target.value);
+  filterCards(e.target.value);
+  // Also copy input to global search for consistency
+  globalSearch.value = e.target.value;
 });
