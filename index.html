@@ -10,65 +10,58 @@
 </head>
 
 <body>
-  <div id="background"></div>
-
   <header>
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+    <button id="menu-toggle">☰</button>
     <h1 class="site-title">Calculator Help Center</h1>
-    <input type="text" id="mainSearch" placeholder="Search instructions..." oninput="handleSearch(this.value)" />
+    <input type="text" id="mainSearch" placeholder="Search instructions..." />
   </header>
 
-  <div id="sidebar">
-    <input type="text" id="sidebarSearch" placeholder="Search..." oninput="handleSearch(this.value)" />
+  <aside id="sidebar">
+    <input type="text" id="sidebarSearch" placeholder="Search..." />
     <nav>
       <ul>
         <li><a href="#welcome">Welcome</a></li>
-        <li><a href="#images">Picture Instructions</a></li>
-        <li><a href="#videos">Video Instructions</a></li>
+        <li><a href="#images">Pictures</a></li>
+        <li><a href="#videos">Videos</a></li>
       </ul>
     </nav>
-  </div>
+  </aside>
 
   <main>
     <section id="welcome">
-      <h2>Welcome!</h2>
-      <p>
-        This website is here to help you understand and navigate the Excel
-        calculator with ease. Use the search bar above or the tabs on the
-        left to explore instructions.
-      </p>
-      <a href="media/YourCalculator.xlsx" download class="download-link">Download the Excel Calculator</a>
+      <h2>Welcome</h2>
+      <p>This site gives step-by-step help on using the Excel calculator. You can use the search bar or sidebar to explore. Click the button below to download the calculator file.</p>
+      <a href="media/calculator.xlsx" download class="download-button">Download Excel Calculator</a>
     </section>
 
     <section id="images">
-      <h2>Picture Instructions</h2>
-      <div class="gallery" id="imageGallery">
-        <!-- Sample clickable instruction block -->
-        <div class="instruction-card" onclick="showDetails('Interest Calculation')">
-          <img src="media/interest.jpg" alt="Interest Calculation" />
+      <h2>Picture-Based Instructions</h2>
+      <div class="gallery">
+        <div class="card">
+          <img src="media/example1.jpg" alt="Example Instruction" />
           <p>How to calculate interest</p>
         </div>
-        <!-- Add more instruction blocks here -->
+        <!-- Add more image cards here -->
       </div>
     </section>
 
     <section id="videos">
       <h2>Video Instructions</h2>
-      <div class="gallery" id="videoGallery">
-        <div class="instruction-card">
+      <div class="gallery">
+        <div class="card">
           <video controls>
-            <source src="media/intro.mp4" type="video/mp4" />
+            <source src="media/tutorial.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <p>Introduction to the calculator</p>
+          <p>Video: Basic Setup</p>
         </div>
-        <!-- Add more videos here -->
+        <!-- Add more video cards here -->
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Calculator Help Center - 55213790</p>
+    <p>&copy; Calculator Help Center - 55213790</p>
   </footer>
 
   <script src="script.js"></script>

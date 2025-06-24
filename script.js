@@ -1,54 +1,59 @@
-const searchInput = document.getElementById('search-bar');
-const suggestionsBox = document.getElementById('suggestions');
-
-const suggestions = [
-  "How to switch to a different page?",
-  "How to use the navigation center?",
-  "How to verify the calculation?",
-  "How to clear all the input information?",
-  "How to convert currencies?",
-  "How to convert the interest?"
-];
-
 // script.js
 
-// Toggle sidebar open/close
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('active');
-}
+// Sidebar toggle button functionality
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
 
-// Handle search functionality
-function handleSearch(query) {
+menuToggle.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+// Search handling: simple keyword-based navigation
+const mainSearch = document.getElementById('mainSearch');
+const sidebarSearch = document.getElementById('sidebarSearch');
+
+function searchHandler(query) {
   const q = query.toLowerCase().trim();
 
-  // Simple example of search keywords directing to a section
   if (q.includes('interest') || q.includes('calculate interest')) {
-    location.href = '#images';
-    highlightCard('Interest Calculation');
-  } else if (q.includes('video') || q.includes('how to use')) {
-    location.href = '#videos';
+    location.hash = '#images';
+    highlightCard('How to calculate interest');
+  } else if (q.includes('video') || q.includes('tutorial')) {
+    location.hash = '#videos';
   } else if (q.includes('download') || q.includes('excel')) {
-    location.href = '#welcome';
+    location.hash = '#welcome';
+  } else {
+    // No match or empty, do nothing or clear highlights
+    clearHighlights();
   }
 }
 
-// Optional: Highlight or scroll to specific image block
-function highlightCard(title) {
-  const cards = document.querySelectorAll('.instruction-card');
+function highlightCard(text) {
+  clearHighlights();
+  const cards = document.querySelectorAll('.card');
   cards.forEach(card => {
-    const text = card.innerText.toLowerCase();
-    if (text.includes(title.toLowerCase())) {
+    if (card.innerText.toLowerCase().includes(text.toLowerCase())) {
       card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      card.style.boxShadow = '0 0 15px 5px #00acc1';
+      card.style.boxShadow = '0 0 12px 4px #00796b';
       setTimeout(() => {
         card.style.boxShadow = '';
-      }, 2000);
+      }, 2500);
     }
   });
 }
 
-// Optional: Show details popup or modal
-function showDetails(promptName) {
-  alert(`You selected: ${promptName}\n(More interactive detail can be built here later.)`);
+function clearHighlights() {
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.style.boxShadow = '';
+  });
 }
+
+// Attach search event listeners
+mainSearch.addEventListener('input', (e) => {
+  searchHandler(e.target.value);
+});
+
+sidebarSearch.addEventListener('input', (e) => {
+  searchHandler(e.target.value);
+});
