@@ -9,13 +9,11 @@
 </head>
 <body>
 
-  <!-- Background image container -->
+  <!-- Background Image -->
   <div id="background-image"></div>
 
-  <!-- Page content wrapper -->
+  <!-- Main Content -->
   <div class="page-container">
-
-    <!-- Header -->
     <header>
       <h1>Calculator Help Center</h1>
       <p>Search help topics, watch tutorials, and explore tips.</p>
@@ -23,31 +21,24 @@
 
     <!-- Search Bar -->
     <div class="search-container">
-      <input
-        type="text"
-        id="search-bar"
-        placeholder="Search..."
-        autocomplete="off"
-        aria-label="Search calculator help topics"
-      />
-      <button class="search-btn" aria-label="Search">
-        <img src="search-icon.svg" alt="Search icon" onerror="this.src='fallback.png'" />
+      <input type="text" id="search-bar" placeholder="Search..." autocomplete="off" />
+      <button class="search-btn">
+        <img src="search-icon.svg" alt="Search" />
       </button>
-      <ul id="suggestions" role="listbox" aria-label="Suggestions"></ul>
+      <ul id="suggestions"></ul>
     </div>
 
-    <!-- Main content -->
+    <!-- Media Section -->
     <main>
       <h2>Videos & Images</h2>
       <video controls width="320">
         <source src="media/sample-video.mp4" type="video/mp4" />
-        Your browser does not support video playback.
       </video>
-      <img src="media/sample-image.png" alt="Calculator Screenshot" width="300" />
+      <img src="media/sample-image.png" alt="Screenshot" width="300" />
     </main>
 
     <footer>
-      <p>&copy; Calculator Help Center - 55213790</p>
+      <p>&copy; 2025 Calculator Help Center</p>
     </footer>
   </div>
 

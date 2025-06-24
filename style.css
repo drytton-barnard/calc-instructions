@@ -13,14 +13,14 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === Fullscreen Background Image === */
+/* === Background Image === */
 #background-image {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 100vw;
-  background-image: url('media/background.jpg'); /* your image path */
+  height: 100vh;
+  background-image: url('media/background.jpg'); /* Your image goes here */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -28,7 +28,7 @@ html, body {
   z-index: -1;
 }
 
-/* === Main Wrapper Now Full Width === */
+/* === Fullscreen Responsive Layout === */
 .page-container {
   width: 100%;
   min-height: 100vh;
@@ -63,21 +63,18 @@ header p {
 .search-container {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto 40px;
   position: relative;
-  display: flex;
-  justify-content: center;
+  margin-bottom: 40px;
 }
 
 #search-bar {
   width: 100%;
-  padding: 14px 48px 14px 20px;
+  padding: 14px 50px 14px 20px;
   font-size: 1rem;
   border: 2px solid #2f4f4f;
   border-radius: 30px;
   background-color: #fff;
   outline: none;
-  box-shadow: none;
 }
 
 .search-btn {
@@ -144,8 +141,6 @@ main h2 {
 
 video, img {
   max-width: 100%;
-  width: auto;
-  height: auto;
   margin: 20px auto;
   display: block;
   border-radius: 12px;
