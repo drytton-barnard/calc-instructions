@@ -17,11 +17,12 @@ html, body {
 #background-image {
   position: fixed;
   top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-image: url('media/background.jpg'); /* your image path */
+  width: 100vw;
+  height: 100vh;
+  background-image: url('media/background.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
   filter: brightness(0.6);
   z-index: -1;
 }
@@ -67,12 +68,13 @@ header p {
 
 #search-bar {
   width: 100%;
-  padding: 14px 50px 14px 20px;
+  padding: 14px 50px 14px 20px; /* right padding for button */
   font-size: 1rem;
   border: 2px solid #2f4f4f;
   border-radius: 30px;
   background-color: #fff;
   outline: none;
+  box-sizing: border-box;
 }
 
 .search-btn {
@@ -209,5 +211,19 @@ footer {
   }
   main h2 {
     font-size: 1.1rem;
+  }
+
+  /* Fix for search button on small screens */
+  #search-bar {
+    padding-right: 44px;
+  }
+  .search-btn {
+    width: 32px;
+    height: 32px;
+    right: 8px;
+  }
+  .search-btn img {
+    width: 18px;
+    height: 18px;
   }
 }
