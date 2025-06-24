@@ -1,137 +1,172 @@
-/* === Global Reset === */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === Body === */
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to right, #f0f8ff, #dbe9f4);
-  color: #333;
-  padding: 20px;
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: #f0f0f0;
+  overflow-x: hidden;
 }
 
-/* === Header === */
+/* Background image */
+#background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('media/background.jpg'); /* <-- Change this */
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.65);
+  z-index: -1;
+}
+
+/* Page content */
+.page-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
 header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 header h1 {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Great Vibes', cursive;
   font-size: 3.5rem;
   color: #2c3e50;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  user-select: none;
 }
 
 header p {
   font-size: 1.1rem;
   color: #555;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
-/* === Search Bar === */
+/* Search */
 .search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #c8f4d3, #a2e5b6);
-  padding: 10px;
-  border-radius: 50px;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
+  width: 100%;
   max-width: 500px;
-  margin: 30px auto;
   position: relative;
+  margin-bottom: 30px;
 }
 
-.aesthetic-search {
-  flex: 1;
-  padding: 12px 18px;
+#search-bar {
+  width: 100%;
+  padding: 12px 48px 12px 20px;
   font-size: 1rem;
-  border: none;
-  border-radius: 50px 0 0 50px;
+  border: 2px solid #2f4f4f;
+  border-radius: 32px;
   outline: none;
-  background-color: #ffffff;
-  color: #333;
-  font-family: 'Poppins', sans-serif;
+  transition: border 0.3s;
+  background: white;
 }
 
-.search-button {
-  background-color: #69d58d;
+#search-bar:focus {
+  border-color: #2f4f4f;
+  box-shadow: 0 0 0 2px rgba(47, 79, 79, 0.2);
+}
+
+.search-btn {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
   border: none;
-  padding: 12px 18px;
-  border-radius: 0 50px 50px 0;
+  background: none;
+  padding: 0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.search-button:hover {
-  background-color: #53c67a;
-}
-
-.search-button img {
+.search-btn img {
   width: 20px;
   height: 20px;
   filter: grayscale(100%);
 }
 
-/* Autocomplete Suggestions */
-#autocomplete-box {
-  width: 90%;
-  max-width: 500px;
-  margin: 0 auto 30px;
-  background-color: white;
+/* Suggestions */
+#suggestions {
+  position: absolute;
+  width: 100%;
+  top: calc(100% + 4px);
+  left: 0;
+  background: white;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+  list-style: none;
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
   display: none;
-  padding: 10px 0;
-  font-family: 'Poppins', sans-serif;
-  position: relative;
-  top: -10px;
-  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-#autocomplete-box div {
-  padding: 10px 16px;
+#suggestions li {
+  padding: 12px 16px;
   cursor: pointer;
+  color: #2f4f4f;
 }
 
-#autocomplete-box div:hover {
-  background-color: #f0f0f0;
+#suggestions li:hover,
+#suggestions li[aria-selected="true"] {
+  background-color: #d1e7dd;
 }
 
-/* === Media Section === */
-.media-section {
-  margin-top: 20px;
+/* Main section */
+main {
   text-align: center;
+  margin-top: 30px;
 }
 
-.media-section h2 {
-  margin: 20px 0 10px;
-  font-weight: 600;
-  color: #2c3e50;
+main h2 {
+  color: #2f4f4f;
+  margin-bottom: 16px;
 }
 
-/* === Footer === */
+video, img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  margin: 16px 0;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  margin-top: 40px;
+  margin-top: auto;
+  padding-top: 50px;
   font-size: 0.9rem;
-  color: #888;
+  color: #999;
 }
 
-/* === Responsive === */
-@media screen and (max-width: 600px) {
-  .aesthetic-search {
-    font-size: 0.9rem;
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.5rem;
   }
 
-  video,
-  img {
-    width: 90%;
-    height: auto;
+  #search-bar {
+    font-size: 0.95rem;
+  }
+
+  .page-container {
+    padding: 24px 16px;
   }
 }
