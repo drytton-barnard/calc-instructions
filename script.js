@@ -60,3 +60,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+// AI assistant client-call
+document.getElementById('ai-submit')?.addEventListener('click', async () => {
+  const q = document.getElementById('ai-question').value.trim();
+  const textEl = document.getElementById('ai-text');
+  const imgEl = document.getElementById('ai-image');
+  if (!q) return alert('Please enter a question.');
+
+  textEl.textContent = 'Thinking...';
+  imgEl.src = '';
+
+  try {
+    const res = await fetch('https://your-backend-url.com/api/help', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: q })
+    });
+    const data = await res.json();
+    textEl.textContent = data.answer;
+    imgEl.src = data.image;
+  } catch (e) {
+    textEl.textContent = '⚠ Something went wrong.';
+  }
+});

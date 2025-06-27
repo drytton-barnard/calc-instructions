@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Calculator Help Center - Home Page</title>
   <link rel="stylesheet" href="style.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div id="background-image"></div>
@@ -17,13 +14,7 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">Help Center</a>
-      <button
-        class="nav-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded="false"
-        aria-controls="nav-menu"
-        type="button"
-      >
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" type="button">
         <span class="hamburger"></span>
       </button>
       <ul class="nav-menu" id="nav-menu">
@@ -41,12 +32,7 @@
     </header>
 
     <div class="search-container">
-      <input
-        type="text"
-        id="search-bar"
-        placeholder="Search..."
-        autocomplete="off"
-      />
+      <input type="text" id="search-bar" placeholder="Search..." autocomplete="off" />
       <button class="search-btn" aria-label="Search">
         <img src="search-icon.svg" alt="Search Icon" />
       </button>
@@ -65,17 +51,15 @@
         </a>
       </div>
 
-      <div class="video-wrapper">
-        <video controls>
-          <source src="media/sample-video.mp4" type="video/mp4" />
-        </video>
-      </div>
-
-      <img
-        src="media/sample-image.png"
-        alt="Screenshot"
-        class="media-image"
-      />
+      <section id="ask-ai" class="ai-help">
+        <h2>Ask the Assistant</h2>
+        <input id="ai-question" type="text" placeholder="e.g. How to calculate the annuity?" />
+        <button id="ai-submit">Ask AI</button>
+        <div id="ai-response">
+          <p id="ai-text"></p>
+          <img id="ai-image" alt="AI Illustration" />
+        </div>
+      </section>
     </main>
 
     <footer>
