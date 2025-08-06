@@ -170,20 +170,24 @@
       document.getElementById("uploadVideo").value = "";
     }
   </script>
-  <!-- Other HTML content above -->
-  
-  <!-- Place this right before closing body tag -->
+
+  <!-- Corrected hamburger toggle script: -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      const toggle = document.querySelector(".toggle");
-      const nav = document.querySelector(".navigation");
+      const navToggle = document.querySelector(".nav-toggle");
+      const navMenu = document.querySelector(".nav-menu");
 
-      if (toggle && nav) {
-        toggle.addEventListener("click", function () {
-          nav.classList.toggle("active");
+      if (navToggle && navMenu) {
+        navToggle.addEventListener("click", function () {
+          const expanded = navToggle.getAttribute("aria-expanded") === "true" || false;
+          navToggle.setAttribute("aria-expanded", !expanded);
+          navMenu.classList.toggle("active");
+          navToggle.classList.toggle("active");
         });
       }
     });
   </script>
+
 </body>
+
 </html>
