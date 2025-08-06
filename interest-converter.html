@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,30 +47,27 @@
     }
   </style>
 </head>
-
 <body>
+
+  <!-- ✅ FIXED Navigation bar (top, consistent with all other pages) -->
+  <nav class="navigation">
+    <div class="toggle">&#9776;</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="interest-converter.html" class="active">Interest Converter</a></li>
+      <li><a href="date-converter.html">Date Converter</a></li>
+      <li><a href="single-investment.html">Single Investment</a></li>
+      <li><a href="annuities.html">Annuities</a></li>
+      <li><a href="increasing-annuity.html">Increasing Annuity</a></li>
+      <li><a href="loan-calculator.html">Loan Calculator</a></li>
+    </ul>
+  </nav>
+
+  <!-- ✅ Glass container starts below nav -->
   <div class="glass-container">
     <header>
       <h1>Interest Converter</h1>
     </header>
-
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="index.html" class="nav-logo">Help Center</a>
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" type="button">
-          <span class="hamburger"></span>
-        </button>
-        <ul class="nav-menu" id="nav-menu">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="interest-converter.html" class="nav-link active">Interest Converter</a></li>
-          <li><a href="date-converter.html" class="nav-link">Date Converter</a></li>
-          <li><a href="single-investment.html" class="nav-link">Single Investment</a></li>
-          <li><a href="annuities.html" class="nav-link">Annuities</a></li>
-          <li><a href="increasing-annuity.html" class="nav-link">Increasing Annuity</a></li>
-          <li><a href="loan-calculator.html" class="nav-link">Loan Calculator</a></li>
-        </ul>
-      </div>
-    </nav>
 
     <main>
       <p>Use this page to download the Excel interest calculator or PowerPoint instructions, and privately upload related media.</p>
@@ -97,6 +93,7 @@
     </footer>
   </div>
 
+  <!-- ✅ JavaScript functionality -->
   <script>
     let uploadVisible = false;
 
@@ -149,16 +146,8 @@
     }
 
     document.addEventListener("contextmenu", (e) => e.preventDefault());
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I")) {
-        e.preventDefault();
-      }
-    });
-  </script>
-  <!-- Other HTML content above -->
-  
-  <!-- Place this right before closing body tag -->
-  <script>
+
+    // ✅ Hamburger toggle function
     document.addEventListener("DOMContentLoaded", function () {
       const toggle = document.querySelector(".toggle");
       const nav = document.querySelector(".navigation");
